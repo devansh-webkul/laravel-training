@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    @include('partials.header')
+    @include('authentication::partials.header')
 
-    @include('partials.body')    
+    @include('authentication::partials.body')    
     
-    @include('partials.footer')
+    @include('authentication::partials.footer')
 </body>
 </html>

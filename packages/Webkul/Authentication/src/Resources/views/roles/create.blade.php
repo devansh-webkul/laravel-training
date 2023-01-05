@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('authentication::layouts.master')
 
 @section('body')
     <form action="{{ route('roles.store') }}" method="POST">

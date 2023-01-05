@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Webkul\Authentication\Http\Controllers;
 
-use App\Models\Role;
 use Illuminate\Http\Request;
+use Webkul\Authentication\Models\Role;
 
 class RoleController extends Controller
 {
@@ -16,7 +16,7 @@ class RoleController extends Controller
     {
         $roles = Role::all();
 
-        return view('roles.index', compact('roles'));
+        return view('authentication::roles.index', compact('roles'));
     }
 
     /**
@@ -26,7 +26,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('roles.create');
+        return view('authentication::roles.create');
     }
 
     /**
@@ -55,7 +55,7 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
 
-        return view('roles.show', compact('role'));
+        return view('authentication::roles.show', compact('role'));
     }
 
     /**
@@ -68,7 +68,7 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
 
-        return view('roles.edit', compact('role'));
+        return view('authentication::roles.edit', compact('role'));
     }
 
     /**
