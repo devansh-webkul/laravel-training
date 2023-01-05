@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Webkul\Project\Http\Controllers;
 
-use App\Models\Project;
 use Illuminate\Http\Request;
+use Webkul\Project\Models\Project;
+
 
 class ProjectController extends Controller
 {
@@ -16,8 +17,9 @@ class ProjectController extends Controller
     {
         //
         $projects = Project::all();
+      
 
-        return view('projects.index', compact('projects'));
+        return view('project::projects.index', compact('projects'));
     }
 
     /**
@@ -27,7 +29,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        return view('project::projects.create');
     }
 
     /**
@@ -58,7 +60,7 @@ class ProjectController extends Controller
         //
         $project = Project::findOrFail($id);
 
-        return view('projects.show', compact('project'));
+        return view('project::projects.show', compact('project'));
     }
 
     /**
@@ -73,7 +75,7 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         //dd($project);
 
-        return view('projects.edit')->with(compact('project'));
+        return view('project::projects.edit')->with(compact('project'));
     }
 
     /**

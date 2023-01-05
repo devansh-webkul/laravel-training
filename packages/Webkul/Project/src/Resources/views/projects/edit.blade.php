@@ -1,4 +1,4 @@
-@extends('projects.master')
+@extends('project::projects.master')
 
 @section('body')
 <form action="{{ route('projects.update', $project->id) }}" method="POST">
