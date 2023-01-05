@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,17 @@ Route::get('/roles/{id}/edit', [RoleController::class, 'edit'])->name('roles.edi
 Route::put('/roles/{id}', [RoleController::class, 'update'])->name('roles.update');
 
 Route::delete('/roles/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+
+Route::get('/projects',[ProjectController::class,'index'])->name('projects.index');
+
+Route::get('/projects/create',[ProjectController::class,'create'])->name('projects.create');
+
+Route::post('/projects',[ProjectController::class,'store'])->name('projects.store');
+
+Route::get('/projects/{id}',[ProjectController::class,'show'])->name('projects.show');
+
+Route::get('/projects/{id}/edit',[ProjectController::class,'edit'])->name('projects.edit');
+
+Route::PUT('/projects/{id}',[ProjectController::class,'update'])->name('projects.update');
+
+Route::delete('/projects/{id}',[ProjectController::class,'destroy'])->name('projects.destroy');
