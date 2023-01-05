@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Providers;
+namespace Webkul\Authentication\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class AuthenticationServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -22,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadRoutesFrom(__DIR__ . '/../Routes/web.php');
+
+        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'authentication');
     }
 }
