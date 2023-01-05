@@ -51,3 +51,6 @@ Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('stu
 Route::put('/students/{id}', [StudentController::class, 'update'])->name('students.update');
 
 Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
+Route::get('/welcome-2', function () {
+    return view('welcome-2');
+});

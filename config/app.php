@@ -195,6 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Webkul\Authentication\Providers\AuthenticationServiceProvider::class,
     ],
 
     /*
