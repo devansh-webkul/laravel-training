@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 use Webkul\Project\Http\Controllers\StudentController;
 
 /**
@@ -21,3 +23,8 @@ Route::put('/students/{id}', [StudentController::class, 'update'])->name('studen
 
 Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
 
+// Route::get('/{locale}', function ($locale) {
+//      App::setLocale($locale);
+
+//      return view('project::students.index');
+// });

@@ -7,19 +7,19 @@
         @method('PUT')
 
         <div>
-            <label for="">Name</label>
+            <label for="">{{ __('project::app.name') }}</label>
 
             <input type="text" name="name" value="{{ $student->name }}">
         </div>   
 
         <div>
-            <label for="">Description</label>
+            <label for="">{{ __('project::app.description') }}</label>
 
             <input type="text" name="discription" value="{{ $student->discription }}">
         </div>
 
         <div>
-            <input type="submit">
+            <input type="submit" value="{{ __('project::app.submit') }}">
         </div>
     </form>
     </body>
