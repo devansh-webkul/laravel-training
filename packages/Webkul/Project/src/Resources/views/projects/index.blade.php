@@ -2,13 +2,13 @@
 
 @section('body')
 
-<h2>Employee Details</h2>
+<h2>{{  __('project::app.employee') }}</h2>
 <table  cellspacing="1" cellpadding="2" border="5px solid black" width="50%">
     <thead>
 
-        <th>Name</th>
-        <th>Description</th>
-        <th colspan="2">Action</th>
+        <th>{{  __('project::app.name') }}</th>
+        <th>{{  __('project::app.description') }}</th>
+        <th colspan="2">{{  __('project::app.action') }}</th>
     </thead>
     
     <tbody>
@@ -43,6 +43,6 @@
 </table>
 <br>
 
-<a href="{{ route('projects.create')}}"><button type="button" >ADD</button></a>  
+<a href="{{ route('projects.create')}}"><button type="button" >{{  __('project::app.add') }}</button></a>  
 @endsection
 

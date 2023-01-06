@@ -27,5 +27,7 @@ class ProjectServiceProvider extends ServiceProvider
     
 
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'project');
+        $this->loadTranslationsFrom(__DIR__.'/../Resources/lang', 'project');
+        
     }
 }

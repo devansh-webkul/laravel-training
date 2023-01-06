@@ -4,7 +4,7 @@
 <form action="{{ route('projects.store') }}" method="POST">
     @csrf
 <div>
-    <label for="">Name</label> <br>
+    <label for="">{{  __('project::app.name') }}</label> <br>
 
     <input type="text" name="name"> 
 </div>
@@ -13,7 +13,7 @@
 
 <div>
     
-    <label for="">Description</label>  <br>
+    <label for="">{{  __('project::app.description') }}</label>  <br>
 
     <input type="text" name="description"> 
 </div>
@@ -21,7 +21,7 @@
 <br>
     
     <div>
-        <input type="submit">
+        <input type="Submit" value="{{  __('project::app.submit') }}">
     </div>
 
 </form>
