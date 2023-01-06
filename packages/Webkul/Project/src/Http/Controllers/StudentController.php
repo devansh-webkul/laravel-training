@@ -14,7 +14,7 @@ class StudentController extends Controller
     {
         $students = Student::all();
 
-        return view('students.index', compact('students'));
+        return view('project::students.index', compact('students'));
     }
 
     /**
@@ -24,7 +24,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        return view('project::students.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class StudentController extends Controller
     {
         $role = Student::findOrFail($id);
 
-        return view('students.show', compact('student'));
+        return view('project::students.show', compact('student'));
     }
 
     /**
@@ -66,7 +66,7 @@ class StudentController extends Controller
     {
         $student = Student::findOrFail($id);
 
-        return view('students.edit', compact('student'));
+        return view('project::students.edit', compact('student'));
     }
 
     /**
@@ -96,9 +96,11 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
+       
         $student = Student::findOrFail($id);
 
         $student->delete();
+        
 
         return redirect(route('students.index'));
     }

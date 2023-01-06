@@ -1,7 +1,9 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
     <head><U>CRUD OPERATION</head></U>
     <body>
-    <table border="3px">
+    <table border ="3px">
         <thead>
             <td>ID</td>
             <td>Name</td>
@@ -18,14 +20,15 @@
                     <td>{{ $student->discription }}</td>
                     <td><a href="{{route('students.edit',  $student->id)}}">click</a></td>
                     <td>
-                        <form id="DeleteForm" action="{{ route('students.destroy', $student->id) }}" method="POST">
+                        <form id="studentDeleteForm{{$student->id}}" action="{{ route('students.destroy', $student->id) }}" method="POST">
+
                             @csrf
                             
                             @method('DELETE')
                         </form>
                     
                     <div>
-                        <a href="#" onclick="document.getElementById('DeleteForm').submit();">Bin</a>
+                        <a href="#" onclick="document.getElementById('studentDeleteForm{{$student->id}}').submit();">Bin</a>
                     </div>
 
                 </tr>
