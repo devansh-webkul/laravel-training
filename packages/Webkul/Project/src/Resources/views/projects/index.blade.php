@@ -24,14 +24,15 @@
                     <i class="material-icons">edit</i> </a>  
                 </td>
 
-                <form id="projectDeleteForm" action="{{ route('projects.destroy', $project->id) }}" method="POST">
+                <form id="projectDeleteForm{{ $project->id}}"  action="{{ route('projects.destroy', $project->id) }}" method="POST">
                     @csrf
                     
                     @method('DELETE')
+                   
                 </form>
 
                 <td style="text-align: center">
-                    <a href="#" onclick="document.getElementById('projectDeleteForm').submit();">
+                    <a href="#" onclick="document.getElementById('projectDeleteForm{{ $project->id}}').submit();">
                     <i class="material-icons">delete</i></a>
                     
                 </td>
