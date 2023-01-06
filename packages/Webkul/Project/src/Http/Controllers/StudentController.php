@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use App\Models\Student;
+namespace Webkul\Project\Http\Controllers;
 use Illuminate\Http\Request;
-
+use Webkul\Project\Models\Student;
 class StudentController extends Controller
 {
     /**
