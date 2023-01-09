@@ -23,8 +23,7 @@ Route::put('/students/{id}', [StudentController::class, 'update'])->name('studen
 
 Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
 
-// Route::get('/{locale}', function ($locale) {
-//      App::setLocale($locale);
-
-//      return view('project::students.index');
-// });
+Route::get('/{locale}', function ($locale) {
+     App::setLocale($locale);
+     return view('project::students.index');
+});
