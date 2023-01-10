@@ -37,7 +37,8 @@ class StudentController extends Controller
     {
         Student::create([
             'name' => request('name'),
-           'discription'=> request('discription'),
+            'discription'=> request('discription'),
+            'roll_number'=> request('roll_number'),
         ]);
 
         return redirect()->to(route('students.index'));

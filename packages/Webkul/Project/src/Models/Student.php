@@ -12,5 +12,6 @@ class Student extends Model
     protected $fillable = [
         'name',
         'discription',
+        'roll_number',
     ];
 }
