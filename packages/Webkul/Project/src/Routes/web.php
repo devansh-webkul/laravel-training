@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
@@ -8,6 +9,9 @@ use Webkul\Project\Http\Controllers\StudentController;
 /**
  * Students.
  */
+
+// Route::get('/students', [StudentController::class , 'index'])->middleware('construction')
+// ->name('students.index');
 
 Route::get('/students', [StudentController::class , 'index'])->name('students.index');
 

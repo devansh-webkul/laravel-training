@@ -13,5 +13,6 @@ class Student extends Model
         'name',
         'discription',
         'roll_number',
+        'class',
     ];
 }

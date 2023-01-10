@@ -2,6 +2,7 @@
 
 namespace Webkul\Project\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Webkul\Project\Models\Student;
 class StudentController extends Controller
 {
@@ -37,13 +38,18 @@ class StudentController extends Controller
     {
         Student::create([
             'name' => request('name'),
-            'discription'=> request('discription'),
-            'roll_number'=> request('roll_number'),
+           'discription'=> request('discription'),
+           'roll_number' => request('roll_number'),
+           'class' => request('class'),
         ]);
-
+   
         return redirect()->to(route('students.index'));
+        Validator::make($request->all(), [
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ])->validate();
     }
-
+  
     /**
      * Display the specified resource.
      *
@@ -84,6 +90,8 @@ class StudentController extends Controller
         $student->update([
             'name' => request('name'),
             'discription' => request('discription'),
+            'roll_number' => request('roll_number'),
+            'class' => request('class'),
         ]);
 
         return redirect(route('students.index'));

@@ -1,5 +1,7 @@
 <?php
 
+use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Php;
+
 return [
 
     'id' => 'पहचान',
@@ -10,7 +12,7 @@ return [
     'edit' => 'संपादित करें',
     'click' => 'क्लिक करें',
     'bin' => 'बिन',
-    'submit' => 'निवेदन'
-
-
+    'submit' => 'निवेदन',
+    'roll_number' => 'पंजीक्रम',
+    'class' => 'कक्षा',
 ];
