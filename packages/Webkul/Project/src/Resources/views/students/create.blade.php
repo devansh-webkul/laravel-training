@@ -45,6 +45,12 @@
     
                 <input type="text" name="discription" placeholder=" write here">
             </div>
+
+            <div>
+                <label for="">{{ __('project::app.roll-number') }}:</label>
+    
+                <input type="text" name="roll_number" placeholder=" write here">
+            </div>
     
             <div>
                 <input type="submit" value="{{ __('project::app.submit') }}">
