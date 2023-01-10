@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
+
+
+/*Registration
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -13,10 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/welcome-2', function () {
-    return view('welcome-2');
-});
