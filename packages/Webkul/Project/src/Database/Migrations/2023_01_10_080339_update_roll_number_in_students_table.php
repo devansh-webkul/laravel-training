@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
             $table->string('class')->nullable()->after('discription');
-            $table->string('roll_number')->nullable()->after('class');
+            $table->string('roll_number')->after('class');
         });
     }
 
