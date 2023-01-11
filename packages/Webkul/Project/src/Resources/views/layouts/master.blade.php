@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    @include('partials.header')
+    @include('project::partials.header')
 
-    @include('partials.body')    
+    @include('project::partials.body')    
     
-    @include('partials.footer')
+    @include('project::partials.footer')
 </body>
 </html>

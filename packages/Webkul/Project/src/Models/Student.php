@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace Webkul\Project\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Student extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'description'
+        'discription',
+        'roll_number',
     ];
 }
