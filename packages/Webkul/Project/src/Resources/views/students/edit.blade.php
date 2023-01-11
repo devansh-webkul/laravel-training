@@ -53,6 +53,18 @@
         </div>
 
         <div>
+            <label for="">{{ __('project::app.roll_number') }}:</label>
+
+            <input type="text" name="roll_number" value="{{ $student->name }}">
+        </div>  
+
+        <div>
+            <label for="">{{ __('project::app.class') }}:</label>
+
+            <input type="text" name="class" value="{{ $student->name }}">
+        </div>  
+
+        <div>
             <input type="submit" value="{{ __('project::app.submit') }}">
         </div>
     </form>
