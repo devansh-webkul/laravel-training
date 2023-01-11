@@ -36,8 +36,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        dd(request()->all());
-        $validated = $request->validate([
+         $request->validate([
             'roll_number' => 'required|unique:students|max:50|integer|',
             'class' => 'required',
         ]);

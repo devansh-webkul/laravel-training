@@ -64,6 +64,8 @@
                         <td> {{ __('project::app.id') }}</td>
                         <td> {{ __('project::app.name') }}</td>
                         <td> {{ __('project::app.description') }}</td>
+                        <td>{{__('project::app.class') }}</td>
+                        <td>{{ __('project::app.roll_number') }}</td>
                         <td> {{ __('project::app.edit') }}</td>
                         <td> {{ __('project::app.delete') }}</td>
                     </thead>
@@ -74,6 +76,8 @@
                                 <td>{{ $student->id }}</td>
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->discription }}</td>
+                                <td>{{ $student->class}}</td>
+                                <td>{{ $student->roll_number }}</td>
                                 <td><a href="{{route('students.edit',  $student->id)}}"><i class="fa fa-edit"></i></a> </td>
                                 <td>
                                     <form id="studentDeleteForm{{$student->id}}" action="{{ route('students.destroy', $student->id) }}" method="POST">

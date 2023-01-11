@@ -32,7 +32,6 @@
     <body>
     
         <form action="{{ route('students.store') }}" method="POST">
-            @csrf
     
             <div>
                 <label for="">{{ __('project::app.name') }}:</label>
