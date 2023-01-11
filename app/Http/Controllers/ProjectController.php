@@ -1,10 +1,11 @@
 <?php
 
-namespace Webkul\Project\Http\Controllers;
+namespace App\Http\Controllers;
+
+use App\Models\Project;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Webkul\Project\Models\Student;
-class StudentController extends Controller
+
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +14,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        $projects = Project::all();
 
-        return view('project::students.index', compact('students'));
+        return view('projects.index', compact('projects'));
     }
 
     /**
@@ -25,7 +26,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('project::students.create');
+        return view('projects.create');
     }
 
     /**
@@ -36,20 +37,14 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'roll_number' => 'required|unique:students|max:50|integer|',
-            'class' => 'required',
+        Project::create([
+            'name' => request('name'),
+            'description' => request('description'),
         ]);
 
-        Student::create([
-            'name' => request('name'),
-           'discription'=> request('discription'),
-           'roll_number' => request('roll_number'),
-           'class' => request('class'),
-        ]);
-        return redirect()->to(route('students.index'));
+        return redirect()->to(route('projects.index'));
     }
-  
+
     /**
      * Display the specified resource.
      *
@@ -58,9 +53,9 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        $role = Student::findOrFail($id);
+        $project = Project::findOrFail($id);
 
-        return view('project::students.show', compact('student'));
+        return view('projects.show', compact('project'));
     }
 
     /**
@@ -71,9 +66,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::findOrFail($id);
+        $project = Project::findOrFail($id);
 
-        return view('project::students.edit', compact('student'));
+        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -85,16 +80,14 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $student = Student::findOrFail($id);
+        $project = Project::findOrFail($id);
 
-        $student->update([
+        $project->update([
             'name' => request('name'),
-            'discription' => request('discription'),
-            'roll_number' => request('roll_number'),
-            'class' => request('class'),
+            'description' => request('description'),
         ]);
 
-        return redirect(route('students.index'));
+        return redirect(route('projects.index'));
     }
 
     /**
@@ -105,12 +98,10 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-       
-        $student = Student::findOrFail($id);
+        $project = Project::findOrFail($id);
 
-        $student->delete();
-        
+        $project->delete();
 
-        return redirect(route('students.index'));
+        return redirect(route('projects.index'));
     }
 }
