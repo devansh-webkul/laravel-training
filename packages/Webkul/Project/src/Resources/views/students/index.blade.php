@@ -88,6 +88,10 @@
                 <div v-text="className" @click="alertClassName"></div>
                 
                 <div v-text="rollNumber" @click="alertRollNumber"></div>
+
+                <input type="hidden" name="reference_number" :value="referenceNumber">
+
+                <button @click="generateReferenceNumber">Generate Number</button>
             </div>
         </script>
         
@@ -96,6 +100,12 @@
                 template: "#table-row-template",
 
                 props: ['username', 'className', 'rollNumber'],
+
+                data() {
+                    return {
+                        referenceNumber: 1,
+                    };
+                },
 
                 methods: {
                     alertUsername() {
@@ -108,6 +118,10 @@
 
                     alertRollNumber() {
                         alert(this.rollNumber);
+                    },
+
+                    generateReferenceNumber() {
+                        this.referenceNumber = this.username + this.className + this.rollNumber;
                     },
                 },
             });
