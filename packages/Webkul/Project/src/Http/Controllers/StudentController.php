@@ -37,8 +37,10 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'roll_number' => 'required|unique:students|max:50|integer|',
-            'class' => 'required',
+            'name' => 'required',
+            'discription' => 'required',
+            'roll_number' => 'required|unique:students|integer|',
+          
         ]);
 
         Student::create([

@@ -28,8 +28,22 @@
                 background-color: #8fe293;
                 }
         </style>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+            </div>
+        @endif
     
         <form action="{{ route('students.store') }}" method="POST">
             @csrf
@@ -46,6 +60,12 @@
     
                 <input type="text" name="discription" placeholder=" write here">
             </div>
+
+            <div>
+                <label for="">{{ __('project::app.class') }}:</label>
+    
+                <input type="text" name="class" placeholder=" write here">
+            </div>
             
             <div>
                 <label for="">{{ __('project::app.roll_number') }}:</label>
@@ -53,14 +73,6 @@
                 <input type="text" name="roll_number" placeholder="xyz">
             </div>  
 
-
-            <div>
-                <label for="">{{ __('project::app.class') }}:</label>
-    
-                <input type="text" name="class" placeholder="xyz">
-            </div>  
-         
-    
             <div>
                 <input type="submit" value="{{ __('project::app.submit') }}">
             </div>

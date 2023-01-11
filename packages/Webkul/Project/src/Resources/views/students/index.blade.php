@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <h3>CRUD OPERATION</h3>
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             table{
@@ -38,12 +38,15 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
     </head>
     <body>
+        <h3>CRUD OPERATION</h3>
         <div id="main">
             <table border=5px>
                 <thead>
                     <td> {{ __('project::app.id') }}</td>
                     <td> {{ __('project::app.name') }}</td>
                     <td> {{ __('project::app.description') }}</td>
+                    <td> {{ __('project::app.class') }}</td>
+                    <td> {{ __('project::app.class') }}</td>
                     <td> {{ __('project::app.edit') }}</td>
                     <td> {{ __('project::app.delete') }}</td>
                 </thead>
@@ -54,6 +57,8 @@
                             <td>{{ $student->id }}</td>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->discription }}</td>
+                            <td>{{ $student->class }}</td>
+                            <td>{{ $student->roll_number }}</td>
                             <td><a href="{{route('students.edit',  $student->id)}}"><i class="fa fa-edit"></i></a> </td>
                             <td>
                                 <form id="studentDeleteForm{{$student->id}}" action="{{ route('students.destroy', $student->id) }}" method="POST">
