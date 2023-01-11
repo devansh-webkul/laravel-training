@@ -38,19 +38,28 @@
                 <label for="">{{ __('project::app.name') }}:</label>
     
                 <input type="text" name="name" placeholder="xyz">
-            </div>   
-           
+            </div> 
+            
+              
             <div>
                 <label for="">{{ __('project::app.description') }}:</label>
     
                 <input type="text" name="discription" placeholder=" write here">
             </div>
+            
+            <div>
+                <label for="">{{ __('project::app.roll_number') }}:</label>
+    
+                <input type="text" name="roll_number" placeholder="xyz">
+            </div>  
+
 
             <div>
-                <label for="">{{ __('project::app.roll-number') }}:</label>
+                <label for="">{{ __('project::app.class') }}:</label>
     
-                <input type="text" name="roll_number" placeholder=" write here">
-            </div>
+                <input type="text" name="class" placeholder="xyz">
+            </div>  
+         
     
             <div>
                 <input type="submit" value="{{ __('project::app.submit') }}">
