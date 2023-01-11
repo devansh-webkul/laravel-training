@@ -11,7 +11,7 @@ return [
     'click' => 'Click',
     'bin' => 'Bin',
     'submit' => 'Submit',
-    'roll_numer' => 'Roll_Number',
+    'roll_number' => 'Roll Number',
     'class' => 'class'
 
 ];

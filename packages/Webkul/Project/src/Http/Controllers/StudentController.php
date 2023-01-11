@@ -36,6 +36,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        dd(request()->all());
         $validated = $request->validate([
             'roll_number' => 'required|unique:students|max:50|integer|',
             'class' => 'required',
@@ -49,10 +50,7 @@ class StudentController extends Controller
         ]);
    
         return redirect()->to(route('students.index'));
-        Validator::make($request->all(), [
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
-        ])->validate();
+        
     }
   
     /**
