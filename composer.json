@@ -26,7 +26,8 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "Webkul\\Authentication\\": "packages/Webkul/Authentication/src/",
-            "Webkul\\Project\\" : "packages/Webkul/Project/src/"
+            "Webkul\\Project\\": "packages/Webkul/Project/src/"
+
         }
     },
     "autoload-dev": {

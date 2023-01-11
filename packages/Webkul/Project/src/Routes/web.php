@@ -1,19 +1,29 @@
 <?php
 
-
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-use Webkul\Project\Http\Controllers\ProjectController;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
+use Webkul\Project\Http\Controllers\StudentController;
 
-Route::get('/projects',[ProjectController::class,'index'])->name('projects.index');
+/**
+ * Students.
+ */
 
-Route::get('/projects/create',[ProjectController::class,'create'])->name('projects.create');
+Route::get('/students', [StudentController::class , 'index'])->name('students.index');
 
-Route::post('/projects',[ProjectController::class,'store'])->name('projects.store');
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
-Route::get('/projects/{id}',[ProjectController::class,'show'])->name('projects.show');
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
-Route::get('/projects/{id}/edit',[ProjectController::class,'edit'])->name('projects.edit');
+Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
 
-Route::PUT('/projects/{id}',[ProjectController::class,'update'])->name('projects.update');
+Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
 
-Route::delete('/projects/{id}',[ProjectController::class,'destroy'])->name('projects.destroy');
+Route::put('/students/{id}', [StudentController::class, 'update'])->name('students.update');
+
+Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
+
+Route::get('/{locale}', function ($locale) {
+     App::setLocale($locale);
+     return view('project::students.index');
+});
