@@ -10,6 +10,8 @@ return [
     'edit' => 'Edit',
     'click' => 'Click',
     'bin' => 'Bin',
-    'submit' => 'Submit'
+    'submit' => 'Submit',
+    'roll_numer' => 'Roll_Number',
+    'class' => 'class'
 
 ];

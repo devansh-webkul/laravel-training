@@ -28,7 +28,7 @@ return new class extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
             $table->dropColumn('roll_number');
-            $table->dropColumn('class');
+            $table->dropColumn('classes');
         });
     }
 };
