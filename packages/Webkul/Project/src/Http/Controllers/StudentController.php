@@ -47,12 +47,7 @@ class StudentController extends Controller
            'roll_number' => request('roll_number'),
            'class' => request('class'),
         ]);
-   
         return redirect()->to(route('students.index'));
-        Validator::make($request->all(), [
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
-        ])->validate();
     }
   
     /**

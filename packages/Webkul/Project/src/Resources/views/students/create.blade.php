@@ -38,6 +38,7 @@
                 <label for="">{{ __('project::app.name') }}:</label>
     
                 <input type="text" name="name" placeholder="xyz">
+                
             </div> 
             
               
