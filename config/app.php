@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Webkul\Authentication\Providers\AuthenticationServiceProvider::class,
+        Webkul\Project\Providers\ProjectServiceProvider::class,
     ],
 
     /*
