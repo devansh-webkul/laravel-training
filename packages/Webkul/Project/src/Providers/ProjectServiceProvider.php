@@ -29,5 +29,7 @@ class ProjectServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'project');
 
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'project');
+
+        $this->publishes([__DIR__ . '/../Resources/assets' => public_path('vendor/webkul/project/assets')], 'public');
     }
 }
