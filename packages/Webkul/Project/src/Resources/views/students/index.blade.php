@@ -40,55 +40,59 @@
     <body>
         <h3>CRUD OPERATION</h3>
         <div id="main">
-            <table border=5px>
-                <thead>
-                    <td> {{ __('project::app.id') }}</td>
-                    <td> {{ __('project::app.name') }}</td>
-                    <td> {{ __('project::app.description') }}</td>
-                    <td> {{ __('project::app.class') }}</td>
-                    <td> {{ __('project::app.class') }}</td>
-                    <td> {{ __('project::app.edit') }}</td>
-                    <td> {{ __('project::app.delete') }}</td>
-                </thead>
-        
-                <tbody>
-                    @foreach ($students as $student)
-                        <tr>
-                            <td>{{ $student->id }}</td>
-                            <td>{{ $student->name }}</td>
-                            <td>{{ $student->discription }}</td>
-                            <td>{{ $student->class }}</td>
-                            <td>{{ $student->roll_number }}</td>
-                            <td><a href="{{route('students.edit',  $student->id)}}"><i class="fa fa-edit"></i></a> </td>
-                            <td>
-                                <form id="studentDeleteForm{{$student->id}}" action="{{ route('students.destroy', $student->id) }}" method="POST">
-        
-                                    @csrf
-                                    
-                                    @method('DELETE')
-                                </form>
-                            
-                            <div>
-                                <a href="#" onclick="document.getElementById('studentDeleteForm{{$student->id}}').submit();"><i class="fa fa-trash"></i></a>
-                            </div>
-        
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
             
-            <a href="students/create">
-                <button>{{ __('project::app.add') }}</button>
-            </a>
             
-            <table-row-component username="Devansh" class-name="9" roll-number="12"></table-row-component>
+            
+            
+            <table-row-component students="@{{students}}" username="Devansh" class-name="9" roll-number="12"></table-row-component>
         </div>  
         
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 
         <script type="text/x-template" id="table-row-template">
             <div>
-                <div v-text="username" @click="alertUsername"></div>
+                <table border=5px>
+                    <thead>
+                        <td> {{ __('project::app.id') }}</td>
+                        <td> {{ __('project::app.name') }}</td>
+                        <td> {{ __('project::app.description') }}</td>
+                        <td> {{ __('project::app.class') }}</td>
+                        <td> {{ __('project::app.roll_number') }}</td>
+                        <td> {{ __('project::app.edit') }}</td>
+                        <td> {{ __('project::app.delete') }}</td>
+                    </thead>
+            
+                    <tbody>
+                        @foreach ($students as $student)
+                            <tr>
+                                <td >{{ $student->id }}</td>
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $student->discription }}</td>
+                                <td>{{ $student->class }}</td>
+                                <td>{{ $student->roll_number }}</td>
+                                <td><a href="{{route('students.edit',  $student->id)}}"><i class="fa fa-edit"></i></a> </td>
+                                <td>
+                                    <form id="studentDeleteForm{{$student->id}}" action="{{ route('students.destroy', $student->id) }}" method="POST">
+            
+                                        @csrf
+                                        
+                                        @method('DELETE')
+                                    </form>
+                                
+                                <div>
+                                    <a href="#" onclick="document.getElementById('studentDeleteForm{{$student->id}}').submit();"><i class="fa fa-trash"></i></a>
+                                </div>
+            
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <a href="students/create">
+                    <button>{{ __('project::app.add') }}</button>
+                </a>
+
+                {{-- <div v-text="username" @click="alertUsername"></div>
 
                 <div v-text="className" @click="alertClassName"></div>
                 
@@ -96,7 +100,7 @@
 
                 <input type="hidden" name="reference_number" :value="referenceNumber">
 
-                <button @click="generateReferenceNumber">Generate Number</button>
+                <button @click="generateReferenceNumber">Generate Number</button> --}}
             </div>
         </script>
         
@@ -104,7 +108,7 @@
             Vue.component('table-row-component', {
                 template: "#table-row-template",
 
-                props: ['username', 'className', 'rollNumber'],
+                props: ['username', 'className', 'rollNumber', 'students'],
 
                 data() {
                     return {
