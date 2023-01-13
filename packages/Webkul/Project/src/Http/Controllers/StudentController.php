@@ -112,12 +112,11 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-       
+      
         $student = Student::findOrFail($id);
 
-        $student->delete();
+        $student->delete($id);
         
-
         return redirect(route('students.index'));
     }
 }

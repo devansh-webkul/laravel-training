@@ -13,16 +13,6 @@
                 text-align: center;
             }
 
-            button{
-                border: 2px solid #afa04c;
-                width: 20%;
-                background-color: #4CAF50; /* Green */
-                color: white;
-                padding: 10px 20px;
-                text-align: center;
-                margin-left: 10px !important ;
-            }
-
             h3{
                 text-align: center;
                 text-decoration-color: rgb(15, 15, 15);
@@ -40,11 +30,7 @@
     <body>
         <h3>CRUD OPERATION</h3>
         <div id="main">
-            
-            
-            
-            
-            <table-row-component students="@{{students}}" username="Devansh" class-name="9" roll-number="12"></table-row-component>
+            <table-row-component :students="{{json_encode($students)}}" ></table-row-component>
         </div>  
         
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
@@ -63,33 +49,38 @@
                     </thead>
             
                     <tbody>
-                        @foreach ($students as $student)
-                            <tr>
-                                <td >{{ $student->id }}</td>
-                                <td>{{ $student->name }}</td>
-                                <td>{{ $student->discription }}</td>
-                                <td>{{ $student->class }}</td>
-                                <td>{{ $student->roll_number }}</td>
-                                <td><a href="{{route('students.edit',  $student->id)}}"><i class="fa fa-edit"></i></a> </td>
-                                <td>
-                                    <form id="studentDeleteForm{{$student->id}}" action="{{ route('students.destroy', $student->id) }}" method="POST">
-            
-                                        @csrf
-                                        
-                                        @method('DELETE')
-                                    </form>
-                                
+                        <tr v-for="student in students" :key="student.id">
+                            <td>@{{student.id}}</td>
+                            <td>@{{student.name}}</td>
+                            <td>@{{student.discription}}</td>
+                            <td>@{{student.class}}</td>
+                            <td>@{{student.roll_number}}</td>
+                            
+                            <td>
+                                <a :href='fetchRoute(student)'>
+                                <i class="fa fa-edit"></i>
+                                </a>
+                            </td>
+{{-- 
+                            <td>
                                 <div>
-                                    <a href="#" onclick="document.getElementById('studentDeleteForm{{$student->id}}').submit();"><i class="fa fa-trash"></i></a>
+                                    <button :onclick='fetchDeleteRoute(student)'><i class="fa fa-trash"></i></button>
                                 </div>
-            
-                            </tr>
-                        @endforeach
+                            </td> --}}
+
+                            <td>
+                            <form method="POST" :action=" fetchDeleteRoute(student)">
+                                {{ method_field('DELETE') }}
+                                {{ csrf_field() }}
+                                <button type="submit"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                            </form>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
 
                 <a href="students/create">
-                    <button>{{ __('project::app.add') }}</button>
+                    <button class="btn">{{ __('project::app.add') }}</button>
                 </a>
 
                 {{-- <div v-text="username" @click="alertUsername"></div>
@@ -101,8 +92,11 @@
                 <input type="hidden" name="reference_number" :value="referenceNumber">
 
                 <button @click="generateReferenceNumber">Generate Number</button> --}}
+                
             </div>
         </script>
+
+        
         
         <script>
             Vue.component('table-row-component', {
@@ -117,6 +111,18 @@
                 },
 
                 methods: {
+                    fetchRoute(data){
+                        var url = '{{ route("students.edit", ":id") }}';
+                        return url.replace(':id', data.id);
+                    },
+
+                    fetchDeleteRoute(data){
+                    
+                        var url = '{{ route("students.destroy", ":id") }}';
+    
+                        return url.replace(':id', data.id);
+                    },
+
                     alertUsername() {
                         alert(this.username);
                     },
@@ -136,11 +142,26 @@
             });
         </script>
 
+        
+
+        <style scoped>
+            .btn{
+            border: 2px solid #afa04c;
+            width: 20%;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            margin-left: 10px !important ;
+            }         
+        </style>
+
         <script>
             new Vue({
-                el: "#main",
-            });
+            el: "#main",
+        });
         </script>
+ 
     </body>
 </html> 
- 
+
