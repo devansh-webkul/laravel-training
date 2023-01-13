@@ -37,7 +37,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'roll_number' => 'required|unique:students|max:50|integer|',
+            'roll_number' => 'required|unique:students|integer|',
             'class' => 'required',
         ]);
 
@@ -59,7 +59,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        $role = Student::findOrFail($id);
+        $student = Student::findOrFail($id);
 
         return view('project::students.show', compact('student'));
     }
@@ -91,11 +91,8 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);
 
         $validated = $request->validate([
-            'roll_number' => 'required|unique:students|max:50|integer|',
-            'class' => 'required',
+            'roll_number' => 'integer',
         ]);
-
-
         $student->update([
             'name' => request('name'),
             'discription' => request('discription'),
@@ -114,7 +111,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-       
+      
         $student = Student::findOrFail($id);
 
         $student->delete();

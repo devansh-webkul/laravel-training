@@ -18,6 +18,12 @@
                 margin-left: 10px !important ;
             }
 
+
+            .fa fa-trash{
+                padding: 10px 10px 10px 10px;
+            }
+                
+
             h3{
                 text-align: center;
                 text-decoration-color: rgb(15, 15, 15);

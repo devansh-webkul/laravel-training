@@ -35,7 +35,6 @@
 
             <input type="text" name="class" value="{{ $student->class }}">
         </div>  
-
         <div>
             <input type="submit" value="{{ __('project::app.submit') }}">
         </div>

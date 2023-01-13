@@ -24,6 +24,13 @@
                 background: rgb(231, 222, 222);
             }
 
+
+        
+            .fa fa-trash{
+                padding: 10px 10px 10px 10px;
+            }
+               
+
             thead {
                 color: maroon;
                 background-color: silver;
