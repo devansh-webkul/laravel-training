@@ -37,8 +37,10 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'roll_number' => 'required|unique:students|max:50|integer|',
-            'class' => 'required',
+            'name' => 'required',
+            'discription' => 'required',
+            'roll_number' => 'required|unique:students|integer|',
+          
         ]);
 
         Student::create([
@@ -110,12 +112,11 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-       
+      
         $student = Student::findOrFail($id);
 
-        $student->delete();
+        $student->delete($id);
         
-
         return redirect(route('students.index'));
     }
 }
