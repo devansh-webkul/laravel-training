@@ -1,38 +1,23 @@
 <HTML>
     <head>
-        <style>
-            input[type=text]{
-                background-color: antiquewhite;
-                width: 40%;
-                padding: 12px 20px;
-                margin: 6px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-
-             }
-
-             input[type=submit] {
-                width: 40%;
-                background-color: #4CAF50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                }
-
-                input[type=submit]:hover {
-                background-color: #8fe293;
-                }
-        </style>
+        <link rel="stylesheet" href="{{ asset('vendor/webkul/project/assets/css/create.css') }}">
     </head>
     <body>
     
         <form action="{{ route('students.store') }}" method="POST">
+
+
             @csrf
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+    @endif
     
             <div>
                 <label for="">{{ __('project::app.name') }}:</label>
