@@ -11,15 +11,15 @@
     </head>
     <body>
         <div id="main">
-        
             <table-row-component students='@json($students)'></table-row-component>
+           
         </div>  
         
         <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 
         <script type="text/x-template" id="table-row-template">
             <div>
-
+               
                     <table border=5px>
                         <thead>
                             <td> {{ __('project::app.id') }}</td>
@@ -29,6 +29,7 @@
                             <td> {{ __('project::app.class') }}</td>
                             <td> {{ __('project::app.edit') }}</td>
                             <td> {{ __('project::app.delete') }}</td>
+                           
                         </thead>
                
                             <tbody >
@@ -70,14 +71,17 @@
                         props: ['students'],
                         data() {
                             return {
-                                students: [],                       
+                                students: [],   
+                                             
                             };
                         },
                         mounted(){
                             this.students = JSON.parse(this.students);
+                            
                         }, 
                         methods: {
                             getRoute(student){
+
                                 var url = '{{ route("students.edit", ":id") }}';
                                 return url.replace(':id', student.id);
                             },

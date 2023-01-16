@@ -12,12 +12,27 @@
 
         @method('PUT')
 
+        @csrf
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+@endif
+
+
         <div>
             <label for="">{{ __('project::app.name') }}:</label>
 
             <input type="text" name="name" value="{{ $student->name }}">
-        </div>   
 
+
+        </div>   
+     
         <div>
             <label for="">{{ __('project::app.description') }}:</label>
 

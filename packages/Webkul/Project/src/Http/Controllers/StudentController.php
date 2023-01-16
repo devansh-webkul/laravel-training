@@ -88,8 +88,8 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $student = Student::findOrFail($id);
-
+         $student = Student::findOrFail($id);
+         
         $validated = $request->validate([
             'roll_number' => 'integer',
         ]);
